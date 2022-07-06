@@ -12,7 +12,8 @@ const App: React.FC = () => {
 	return (
 	<RB.Flex height="100%">
 		<RB.Flex flexDirection="column">
-
+		
+		<RB.Text>Hello World!</RB.Text>
 
 		</RB.Flex>
 	</RB.Flex>
