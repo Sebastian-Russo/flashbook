@@ -1,7 +1,7 @@
 {
-  "name": "ReactTemplate",
+  "name": "Flashbook",
   "version": "1.0.0",
-  "description": "React Boiler Plate",
+  "description": "Speed Reading App",
   "main": "dist/index.js",
   "author": "Sebastian Russo",
   "license": "ISC",
