@@ -1,59 +1,94 @@
 import * as React from "react";
 import * as RB from "rebass";
+// import { hot } from "react-hot-loader";
 
-import { Nav, PageSelection } from "./nav"
-import { LibraryPage } from "./LibraryPage";
-import { LoginPage } from "./LoginPage";
-import { ReadingPage } from "./ReadingPage";
-import { UploadPage } from "./UploadPage";
+// import config from "config.json";
+
+import { Nav, TabSelection, PageSelection } from "./nav"
+
+import { Library } from "./Library";
+import { Upload } from "./Upload";
+import { Reading } from "./Reading";
+
+import { Profile } from "./Profile";
+import { Login } from "./Login";
+import { Settings } from "./Settings";
+import { AppPreferences } from "./AppPreferences";
+
+const tab_map: Record<TabSelection, {title: string, Page: typeof React.Component | React.FC}> = {
+	library: {
+		title: "Library",
+		Page: Library,
+	},
+	upload: {
+		title: "Upload",
+		Page: Upload,
+	},
+	reading: {
+		title: "Reading",
+		Page: Reading,
+	},
+	settings: {
+		title: "Settings",
+		Page: Settings,
+	}
+};
 
 
 const page_map: Record<PageSelection, {title: string, Page: typeof React.Component | React.FC}> = {
-	library: {
-		title: "Library",
-		Page: LibraryPage,
+	profile: {
+		title: "Profile",
+		Page: Profile,
 	},
 	login: {
-		title: "Login",
-		Page: LoginPage,
+		title: "login",
+		Page: Login,
 	},
-	reading: {
-		title: "Support Chat",
-		Page: ReadingPage,
+	settings: {
+		title: "Settings",
+		Page: Settings,
 	},
-	upload: {
-		title: "Upload Docs",
-		Page: UploadPage
-	}
+	app_preferences: {
+		title: "App Preferences",
+		Page: AppPreferences,
+	},
 }
 
-const App: React.FC = () => {
-	const [selected_page, setSelectedPage] = React.useState<PageSelection>("upload");
 
-	const PageComponent = page_map[selected_page!]?.Page;
-	const page_title = page_map[selected_page!]?.title;
+const App: React.FC = () => {
+
+	const [selected_tab, setSelectedTab] = React.useState<TabSelection>("library");
+	const [selected_page, setSelectedPage] = React.useState<PageSelection>();
+
+	const PageComponent = page_map[selected_page!]?.Page || tab_map[selected_tab].Page;
+	const page_title = page_map[selected_page!]?.title || tab_map[selected_tab].title;
 
 
 	return (
 		<RB.Flex style={{width: "100%"}} flexDirection="column">
-
+		{/* {!state.token ?
+			<Authentication />
+		: */}
 			<Nav
 				page_title={page_title}
-				// @ts-ignores
+
+				selected_tab={selected_tab}
+				onTabSelected={setSelectedTab}
 				onPageSelected={setSelectedPage}
+
+				nav_type={selected_page ? "page" : "tab" }
 				>
 
 				<RB.Flex className="page-container" flex="1" flexDirection="column">
-					<PageComponent />
+					<PageComponent onPageSelected={setSelectedPage} />
 				</RB.Flex>
-				
 			</Nav>
+		{/* } */}
 
-	</RB.Flex>
+		</RB.Flex>
 	);
 }
 
 
-export {
-	App,
-};
+// export default hot(module)(App);
+export default App;

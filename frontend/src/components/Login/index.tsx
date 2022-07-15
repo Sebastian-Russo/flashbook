@@ -1,9 +1,10 @@
 
 import * as React from "react";
-import * as RB from "rebass";
+// import * as RB from "rebass";
 
+interface LoginProps {}
 
-const LoginPage = props => {
+const Login: React.FC<LoginProps> = props => {
 
 
 
@@ -16,7 +17,7 @@ const LoginPage = props => {
 }
 
 export {
-  LoginPage
+  Login
 }
 
 /*

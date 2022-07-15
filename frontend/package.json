@@ -1,5 +1,5 @@
 {
-  "name": "Flashbook",
+  "name": "flashbook",
   "version": "1.0.0",
   "description": "Speed Reading App",
   "main": "dist/index.js",
@@ -9,8 +9,10 @@
     "https-server": "^0.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-hot-loader": "^4.13.0",
     "rebass": "^4.0.7",
     "styled-components": "^5.3.3",
+    "styled-icons": "^10.45.0",
     "styled-system": "^5.1.5"
   },
   "devDependencies": {

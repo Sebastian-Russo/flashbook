@@ -2,21 +2,21 @@
 import * as React from "react";
 import * as RB from "rebass";
 
+interface ReadingProps {}
 
-
-const ReadingPage = props => {
+const Reading: React.FC<ReadingProps> = props => {
 
 
 
   
   return (
-    <div>ReadingPage</div>
+    <RB.Flex>Reading</RB.Flex>
   )
 }
 
 
 export {
-  ReadingPage
+  Reading
 }
 
 

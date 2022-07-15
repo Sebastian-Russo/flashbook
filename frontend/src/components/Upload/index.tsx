@@ -1,6 +1,6 @@
 
 import * as React from "react";
-import * as RB from "rebass";
+// import * as RB from "rebass";
 
 
 interface SelectedFile {
@@ -10,9 +10,9 @@ interface SelectedFile {
 	lastModifiedDate?: string
 }
 
-interface UploadPageProps {}
+interface UploadProps {}
 
-const UploadPage: React.FC<UploadPageProps> = props => {
+const Upload: React.FC<UploadProps> = props => {
 	const [selected_file, setSelectedFile] = React.useState<SelectedFile>();
 	const [is_selected, setIsSelected] = React.useState(false);
 
@@ -69,7 +69,7 @@ const UploadPage: React.FC<UploadPageProps> = props => {
 }
 
 export {
-  UploadPage
+  Upload
 }
 
 

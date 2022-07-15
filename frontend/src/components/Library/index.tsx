@@ -2,17 +2,18 @@
 import * as React from "react";
 import * as RB from "rebass";
 
+interface LibraryProps {}
 
-const LibraryPage = props => {
+const Library: React.FC<LibraryProps> = props => {
 
 
   return (
-    <div>Your Library Page</div>
+    <RB.Flex>Your Library Page</RB.Flex>
   )
 }
 
 export {
-  LibraryPage
+  Library
 }
 
 /*
