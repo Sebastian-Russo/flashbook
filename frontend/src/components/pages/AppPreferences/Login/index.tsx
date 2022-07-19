@@ -1,6 +1,6 @@
 
 import * as React from "react";
-// import * as RB from "rebass";
+import * as RB from "rebass";
 
 interface LoginProps {}
 
@@ -10,9 +10,9 @@ const Login: React.FC<LoginProps> = props => {
 
 
   return (
-    <div>
+    <RB.Flex>
       Login Page
-    </div>
+    </RB.Flex>
   )
 }
 

@@ -2,7 +2,7 @@
 import * as React from "react";
 import * as RB from "rebass";
 
-// import svg_lib from "../assets/icons/library-outline.svg";
+import svg_lib from "../assets/icons/library-outline.svg";
 // import svg_upload from "../assets/icon/cloud-upload-outline.svg";
 // import svg_read from "../assets/icon/play-outline.svg";
 // import svg_set from "../assets/icon/settings-outline.svg";
@@ -59,7 +59,7 @@ const Nav: React.FC<NavProps> = props => {
 		{props.nav_type === "page" &&
 		<RB.Flex justifyContent={"space-between"} style={{ margin: "4.673vw 2.336vw"}} flexDirection={"row"} alignItems={"center"}>
 		<RB.Flex justifyContent={"space-between"} width={"100%"} onClick={() => props.onPageSelected(undefined)}>
-			<img src="" width={"32"} />
+			<img src={svg_lib} width={"32"} />
 			<RB.Text fontSize={"4.673vw"} color={"black"} fontWeight={"bold"}>{props.page_title}</RB.Text>
 			<RB.Box width="7.477vw" />
 		</RB.Flex>
@@ -85,26 +85,26 @@ const Nav: React.FC<NavProps> = props => {
 		{props.nav_type === "tab" &&
 		<RB.Flex className="bottom-nav" backgroundColor="white" justifyContent="space-around" pb="9.346vw" pt="4.673vw">
 
-		<div className={props.selected_tab === "library" ? "selected-nav-icon" : undefined} key={"library"} onClick={() => props.onTabSelected("library")}>
-			<NavButton title="Library"  /> 
-			{/* icon={svg_lib} */}
-			{/* <img src={svg_lib} /> */}
-		</div>
-		<div className={props.selected_tab === "upload" ? "selected-nav-icon" : undefined} key={"upload"} onClick={() => props.onTabSelected("upload")}>
-			<NavButton title="Upload"  />
-			{/* icon={svg_upload} */}
-			{/* <img src={svg_upload} /> */}
-		</div>
-		<div className={props.selected_tab === "reading" ? "selected-nav-icon" : undefined} key={"reading"} onClick={() => props.onTabSelected("reading")}>
-			<NavButton title="Reading Room"  />
-			{/* icon={svg_read} */}
-			{/* <img src={svg_read} /> */}
-		</div>
-		<div className={props.selected_tab === "settings" ? "selected-nav-icon" : undefined} key={"settings"} onClick={() => props.onTabSelected("settings")}>
-			<NavButton title="Settings"  />
-			{/* icon={svg_set} */}
-			{/* <img src={svg_set} /> */}
-		</div>
+			<div className={props.selected_tab === "library" ? "selected-nav-icon" : undefined} key={"library"} onClick={() => props.onTabSelected("library")}>
+				<NavButton title="Library"  /> 
+				{/* icon={svg_lib} */}
+				{/* <img src={svg_lib} /> */}
+			</div>
+			<div className={props.selected_tab === "upload" ? "selected-nav-icon" : undefined} key={"upload"} onClick={() => props.onTabSelected("upload")}>
+				<NavButton title="Upload"  />
+				{/* icon={svg_upload} */}
+				{/* <img src={svg_upload} /> */}
+			</div>
+			<div className={props.selected_tab === "reading" ? "selected-nav-icon" : undefined} key={"reading"} onClick={() => props.onTabSelected("reading")}>
+				<NavButton title="Reading Room"  />
+				{/* icon={svg_read} */}
+				{/* <img src={svg_read} /> */}
+			</div>
+			<div className={props.selected_tab === "settings" ? "selected-nav-icon" : undefined} key={"settings"} onClick={() => props.onTabSelected("settings")}>
+				<NavButton title="Settings"  />
+				{/* icon={svg_set} */}
+				{/* <img src={svg_set} /> */}
+			</div>
 
 		</RB.Flex> || undefined}
 

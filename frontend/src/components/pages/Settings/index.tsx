@@ -10,9 +10,9 @@ const Settings: React.FC<SettingsProps> = props => {
 
 
   return (
-    <div>
+    <RB.Flex>
       Settings
-    </div>
+    </RB.Flex>
   )
 }
 

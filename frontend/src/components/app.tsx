@@ -6,14 +6,14 @@ import * as RB from "rebass";
 
 import { Nav, TabSelection, PageSelection } from "./nav"
 
-import { Library } from "./Library";
-import { Upload } from "./Upload";
-import { Reading } from "./Reading";
+import { Library } from "./pages/Library";
+import { Upload } from "./pages/Upload";
+import { Reading } from "./pages/Reading";
 
-import { Profile } from "./Profile";
-import { Login } from "./Login";
-import { Settings } from "./Settings";
-import { AppPreferences } from "./AppPreferences";
+import { Profile } from "./pages/Profile";
+import { Login } from "./pages/AppPreferences/Login";
+import { Settings } from "./pages/Settings";
+import { AppPreferences } from "./pages/AppPreferences";
 
 const tab_map: Record<TabSelection, {title: string, Page: typeof React.Component | React.FC}> = {
 	library: {
