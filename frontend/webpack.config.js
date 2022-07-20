@@ -1,6 +1,7 @@
 
 const path = require("path");
 
+const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin;
@@ -57,7 +58,8 @@ const CONFIG = {
 			// Favicon:
 			from: "./src/favicon.ico",
 			to: "./favicon.ico",
-		}]),
+		},]),
+		new webpack.HotModuleReplacementPlugin()
 	],
 };
 

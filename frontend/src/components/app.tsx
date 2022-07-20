@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as RB from "rebass";
-// import { hot } from "react-hot-loader";
+import { hot } from "react-hot-loader";
 
 // import config from "config.json";
 
@@ -90,5 +90,5 @@ const App: React.FC = () => {
 }
 
 
-// export default hot(module)(App);
-export default App;
+export default hot(module)(App);
+// export default App;

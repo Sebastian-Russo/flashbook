@@ -1,6 +1,6 @@
 
 import * as React from "react";
-// import * as RB from "rebass";
+import * as RB from "rebass";
 
 
 interface SelectedFile {
@@ -45,7 +45,7 @@ const Upload: React.FC<UploadProps> = props => {
 
 
 	return (
-		<div>
+		<RB.Flex>
 			<div>Upload Page</div>
 			<input type="file" name="file" onChange={changeHandler} />
 			{is_selected ? (
@@ -64,7 +64,7 @@ const Upload: React.FC<UploadProps> = props => {
 			<div>
 				<button onClick={handleSubmission}>Submit</button>
 			</div>
-		</div>
+		</RB.Flex>
 	)
 }
 

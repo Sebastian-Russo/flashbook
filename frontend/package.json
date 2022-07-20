@@ -40,11 +40,13 @@
     "typescript": "^3.8.3",
     "url-loader": "^4.1.0",
     "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.3"
   },
   "scripts": {
     "build-dev": "npx webpack --env.development",
     "build-prod": "npx webpack --env.production",
-    "start": "http-server -p 8080 ./dist -o index.html"
+    "start": "NODE_OPTIONS= webpack-dev-server --env.development --config webpack.config.js",
+    "start2": "http-server -p 8080 ./dist -o index.html"
   }
 }
