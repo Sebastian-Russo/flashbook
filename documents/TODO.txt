@@ -1,0 +1,7 @@
+Research AWS Amplify
+
+Send doc to S3
+
+Code Pipe Line (cdk)
+
+Context for props
