@@ -1,6 +1,10 @@
 Research AWS Amplify
+    Best for non coders, but would otherwise be good for simple mobile apps. 
 
 Send doc to S3
+    Make an API gateway that is attached to a lambda.
+    Have the lambda return a presigned s3 upload url with a short expire time.
+    Then just use built in fetch function to get the presign url and to use it for the upload.
 
 Code Pipe Line (cdk)
 
