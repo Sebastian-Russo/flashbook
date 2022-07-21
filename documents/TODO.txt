@@ -9,3 +9,12 @@ Send doc to S3
 Code Pipe Line (cdk)
 
 Context for props
+
+Amazon Textract
+
+
+
+Current TODO:
+
+Lambda uploads to S3 successfully for simple text. 
+Get lambda to update S3 with an actual file (aka txt, pdf)

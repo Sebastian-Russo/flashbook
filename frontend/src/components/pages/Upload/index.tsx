@@ -2,6 +2,7 @@
 import * as React from "react";
 import * as RB from "rebass";
 
+import { handleSubmission } from "../../API";
 
 interface SelectedFile {
 	name?: string,
@@ -23,27 +24,11 @@ const Upload: React.FC<UploadProps> = props => {
 		setIsSelected(true);
 	};
 
-	// TODO: Send to AWS ( S3 || Amazon Textract)
-	const handleSubmission = () => {
-		const formData = new FormData();
-
-		formData.append('File', selected_file);
-
-		fetch(
-			'https://freeimage.host/api/1/upload?key=<YOUR_API_KEY>',
-			{
-				method: 'POST',
-				body: formData,
-			}
-		)
-			.then((response) => response.json())
-			.then((result) => {
-				console.log('Success:', result);
-			})
-			.catch((error) => {
-				console.error('Error:', error);
-			});
-	};
+	// Send to API Gateway > S3
+	const handleSubmit = () => {
+		console.log('Handle Submit');
+		handleSubmission(selected_file);
+	}
 
 
 	return (
@@ -53,19 +38,19 @@ const Upload: React.FC<UploadProps> = props => {
 				<input type="file" name="file" onChange={changeHandler} />
 				{is_selected ? (
 					<RB.Flex flexDirection="column">
-						<p>Filename: {selected_file.name}</p>
-						<p>Filetype: {selected_file.type}</p>
-						<p>Size in bytes: {selected_file.size}</p>
+						<p>Filename: {selected_file?.name}</p>
+						<p>Filetype: {selected_file?.type}</p>
+						<p>Size in bytes: {selected_file?.size}</p>
 						<p>
 							lastModifiedDate:{' '}
-							{selected_file.lastModifiedDate.toLocaleDateString()}
+							{selected_file?.lastModifiedDate?.toLocaleDateString()}
 						</p>
 					</RB.Flex>
 				) : (
 					<p>Select a file to show details</p>
 				)}
 				<RB.Flex>
-					<button onClick={handleSubmission}>Submit</button>
+					<button onClick={handleSubmit}>Submit</button>
 				</RB.Flex>
 			
 			</RB.Flex>
@@ -76,13 +61,3 @@ const Upload: React.FC<UploadProps> = props => {
 export {
   Upload
 }
-
-
-/*
-  Upload pdf, txt, etc
-
-  Send to AWS Lambda
-
-  Lambda > Amazon Textract > S3
-
-*/
