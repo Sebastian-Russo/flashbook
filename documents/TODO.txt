@@ -4,7 +4,7 @@ Research AWS Amplify
 Send doc to S3
     Make an API gateway that is attached to a lambda.
     Have the lambda return a presigned s3 upload url with a short expire time.
-    Then just use built in fetch function to get the presign url and to use it for the upload.
+    Then just use built in fetch function to GET the presign url and to use it for the upload.
 
 Code Pipe Line (cdk)
 
@@ -18,3 +18,16 @@ Current TODO:
 
 Lambda uploads to S3 successfully for simple text. 
 Get lambda to update S3 with an actual file (aka txt, pdf)
+
+
+
+1st fetch GET Signed S3 URL 
+    handle CORS access issue
+
+API Gateway
+    lambda return Signed URL
+    handle CORS access issue
+
+2nd fetch - UPDATE S3 object with Signed URL
+    create second api handler
+

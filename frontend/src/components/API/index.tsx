@@ -6,21 +6,18 @@ const handleSubmission = (selected_file:any) => {
 
     formData.append('File', selected_file);
 
-    fetch(`${API}=${process.env.key}`, {
-            method: 'POST',
-            body: formData,
+    fetch(`${API}/key`, {
+            method: 'GET',
     })
     .then((response) => response.json())
     .then((result) => {
         console.log('Success:', result);
+        return result;
     })
     .catch((error) => {
         console.error('Error:', error);
+        return error;
     });
-
-    return {
-        response:"response"
-    }
 };
 
 
