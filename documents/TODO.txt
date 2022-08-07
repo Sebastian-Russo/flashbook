@@ -25,7 +25,8 @@ API Gateway
 Lambdas
     PUTSignedURLS3
         Issue - gets presigned url, but cannot view
-
+    GetSignURLS3
+        Get all objects, list and view them.
 
 
 
