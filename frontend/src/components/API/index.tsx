@@ -1,13 +1,19 @@
 import { API } from "../../config-dev.json";
 
 
-const handleSubmission = (selected_file:any) => {
+const apiUploadDocumentS3 = (selected_file:any) => {
     const formData = new FormData();
 
-    formData.append('File', selected_file);
+    const body = formData.append('File', selected_file);
 
-    fetch(`${API}/key`, {
-            method: 'GET',
+    fetch(`${API}/upload`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+                "Accepts": "application/json"
+            },
+            body: JSON.stringify(body)
+    
     })
     .then((response) => response.json())
     .then((result) => {
@@ -20,7 +26,28 @@ const handleSubmission = (selected_file:any) => {
     });
 };
 
+const apiGetDocumentS3 = () => {
+
+    fetch(`${API}/library`, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "Accepts": "application/json"
+        },
+    })
+    .then((response) => response.json())
+    .then((result) => {
+        console.log('Success:', result);
+        return result;
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        return error;
+    });
+}
+
 
 export {
-    handleSubmission
+    apiUploadDocumentS3,
+    apiGetDocumentS3
 }

@@ -2,7 +2,7 @@
 import * as React from "react";
 import * as RB from "rebass";
 
-import { handleSubmission } from "../../API";
+import { apiUploadDocumentS3 } from "../../API";
 
 interface SelectedFile {
 	name?: string,
@@ -27,7 +27,7 @@ const Upload: React.FC<UploadProps> = props => {
 	// Send to API Gateway > S3
 	const handleSubmit = () => {
 		console.log('Handle Submit');
-		handleSubmission(selected_file);
+		apiUploadDocumentS3(selected_file);
 	}
 
 
