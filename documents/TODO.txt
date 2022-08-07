@@ -1,36 +1,91 @@
-Research AWS Amplify
-    Best for non coders, but would otherwise be good for simple mobile apps. 
+****************************************************************************************
+BACKEND FINISHED:
 
-Send doc to S3
-    Make an API gateway that is attached to a lambda.
-    Have the lambda return a presigned s3 upload url with a short expire time.
-    Then just use built in fetch function to GET the presign url and to use it for the upload.
-
-Code Pipe Line (cdk)
-
-Context for props
-
-Amazon Textract
-
-
-
-Current TODO:
-
-Lambda uploads to S3 successfully for simple text. 
-Get lambda to update S3 with an actual file (aka txt, pdf)
-
-
-
-1st fetch GET Signed S3 URL 
-    handle CORS access issue
+Lambdas
+    PUTSignedURLS3
+        PUT to S3
+        Have the lambda return a presigned s3 upload url with a short expire time.
+        Create presigned url
+        Upload object to s3
+    GetSignURLS3
+        GET from S3
+        Have the lambda return a presigned s3 upload url with a short expire time.
+        Get presigned url
+        Get object from s3
 
 API Gateway
-    lambda return Signed URL
-    handle CORS access issue
+    Make an API gateway that is attached to a lambda.
 
-2nd fetch - UPDATE S3 object with Signed URL
-    create second api handler
+********************************************
+BACKEND - TODO:
+
+API Gateway
+    Fix CORS access issue
+
+Lambdas
+    PUTSignedURLS3
+        Issue - gets presigned url, but cannot view
 
 
 
-test
+
+
+
+
+****************************************************************************************
+FRONTEND - FINISHED:
+
+Pages:
+    App:
+        Set up Architecture
+    Nav:
+        Set up Architecture
+    Upload Page:
+        Upload document
+
+********************************************
+FRONTEND - TODO:
+
+Pages:
+    Upload Page:
+    Library Page:
+        Grab objects from S3 and list in library for quick reads
+
+
+
+
+
+
+
+
+****************************************************************************************
+BACKEND LATER:
+
+    Amazon Textract
+        Read s3 file
+
+    Code Pipe Lines
+        Mirroring github repo to aws codecommit repo
+        CI/CD Testing
+        Deployment
+
+    CDK
+        Build each resource
+
+
+FRONTEND LATER:
+
+    Context for props
+****************************************************************************************
+
+2nd Amplify Backend Architecture
+
+TODO NEXT:
+
+    Fix Amplify push 
+         Senpai ~/Desktop/flashbook $ amplify push --profile seb-sandbox
+✖ There was an error pulling the backend environment dev.
+🛑 An error occurred during the push operation: /
+The specified key does not exist.
+⚠️ Review the Amplify CLI troublesh
+
