@@ -7,10 +7,6 @@ const S3_BUCKET = process.env.S3_BUCKET; // flashbook-load-docs
 exports.handler = async event => {
 	console.log("RAW EVENT:", JSON.stringify(event));
 
-	// const body = JSON.parse(event.body);
-	const body = event.body;
-	console.log("Request body:", JSON.stringify(body));
-
 
     const resposne_s3_get = await s3.getObject({
         Bucket: S3_BUCKET,
