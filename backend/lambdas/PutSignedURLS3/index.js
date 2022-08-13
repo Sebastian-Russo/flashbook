@@ -25,6 +25,7 @@ exports.handler = async event => {
     }).promise();
     console.log("PUT Response:", put);
 
+	// curl -H "Origin: http://localhost:8080" -v "https://mpvz72hebb.execute-api.us-east-1.amazonaws.com/dev/upload"
 
 	// PUT
 	// const url_put = await new Promise((resolve, reject) => { 

@@ -8,7 +8,10 @@ const apiUploadDocumentS3 = (selected_file:any) => {
 
     fetch(`${API}/upload`, {
             method: 'PUT',
+            // @ts-ignore 
             headers: {
+                "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+                // "Access-Control-Allow-Credentials" : true, // Required for cookies, authorization headers with HTTPS 
                 "Content-Type": "application/json",
                 "Accepts": "application/json"
             },
@@ -32,7 +35,7 @@ const apiGetDocumentS3 = () => {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",
-            "Accepts": "application/json"
+            "Accepts": "application/json",
         },
     })
     .then((response) => response.json())
