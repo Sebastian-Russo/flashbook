@@ -11,25 +11,22 @@ exports.handler = async event => {
 	const body = event.body;
 	console.log("Request body:", JSON.stringify(body));
 
-    const url = await new Promise((resolve, reject) => {
-        s3.getSignedUrl('getObject', {
-            Bucket: S3_BUCKET,
-            Key: 'test', // TODO body.fileName,
-            Expires: 3600
-        },
-        (error, data) => {
-            if (error) reject(error);
-            console.log("S3 Pre-Signed URL:", data);
 
-            resolve(data);
-        });
-    });
+    const resposne_s3_get = await s3.getObject({
+        Bucket: S3_BUCKET,
+        Key: "upload/",
+    }).promise()
+    console.log("S3 GET Response:", resposne_s3_get);
+
+    const text = resposne_s3_get.Body.toString('utf-8')
+    console.log('Buffer decoded:', text)
 
 
 	return {
 		statusCode: 200,
 		body: JSON.stringify({
-			url
+			// url
+            resposne_s3_get
 		})
 	}
 };
@@ -39,10 +36,27 @@ exports.handler = async event => {
 /** Tested Successfully **/
 
 // const resposne_s3_get = await s3.getObject({
-//     Bucket: "flashbook-load-docs", 
-//     Key: "upload/", 
+//     Bucket: S3_BUCKET,
+//     Key: "upload/",
 // }).promise()
 // console.log("S3 GET Response:", resposne_s3_get);
 
 // const text = resposne_s3_get.Body.toString('utf-8')
 // console.log('Buffer decoded:', text)
+
+
+
+
+// const url = await new Promise((resolve, reject) => {
+//     s3.getSignedUrl('getObject', {
+//         Bucket: S3_BUCKET,
+//         Key: 'test', // TODO body.fileName,
+//         Expires: 3600
+//     },
+//     (error, data) => {
+//         if (error) reject(error);
+//         console.log("S3 Pre-Signed URL:", data);
+
+//         resolve(data);
+//     });
+// });

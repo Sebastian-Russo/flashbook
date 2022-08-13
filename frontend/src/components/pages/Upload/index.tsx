@@ -4,31 +4,28 @@ import * as RB from "rebass";
 
 import { apiUploadDocumentS3 } from "../../API";
 
-interface SelectedFile {
-	name?: string,
-	type?: string,
-	size?: string,
-	lastModifiedDate?: string
-}
 
 interface UploadProps {}
 
 const Upload: React.FC<UploadProps> = props => {
-	const [selected_file, setSelectedFile] = React.useState<SelectedFile>();
+	const [selected_file, setSelectedFile] = React.useState([]);
 	const [is_selected, setIsSelected] = React.useState(false);
 
 	console.log('Selected file:', selected_file);
 
 	const changeHandler = (event:any) => {
-		setSelectedFile(event.target.files[0]); // this an object that contains the details of files selected to be uploaded in a form
+		const file = event.target.files[0];
+
+		console.log("Raw file:", file);
+		setSelectedFile(file); // this an object that contains the details of files selected to be uploaded in a form
 		setIsSelected(true);
 	};
 
 	// Send to API Gateway > S3
 	const handleSubmit = () => {
-		console.log('Handle Submit');
+		console.log('Handle Submit', selected_file);
 		apiUploadDocumentS3(selected_file);
-	}
+	};
 
 
 	return (
@@ -52,7 +49,7 @@ const Upload: React.FC<UploadProps> = props => {
 				<RB.Flex>
 					<button onClick={handleSubmit}>Submit</button>
 				</RB.Flex>
-			
+
 			</RB.Flex>
 		</RB.Flex>
 	)

@@ -75,8 +75,8 @@ const createConfig = (mode, type) => {
 		"react": path.resolve(__dirname, "node_modules/react"),
 		"config.json": path.resolve(__dirname, devmode
 			? 'src/config-dev.json'
-      : type === "test" 
-      ? 'src/config-test.json' 
+      : type === "test"
+      ? 'src/config-test.json'
       : 'src/config-prod.json'),
 	};
 

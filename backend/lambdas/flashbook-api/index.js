@@ -13,7 +13,7 @@ exports.handler = async event => {
 
 
 	// PUT
-	const url_put = await new Promise((resolve, reject) => { 
+	const url_put = await new Promise((resolve, reject) => {
 		s3.getSignedUrl('putObject', {
 			Bucket: S3_BUCKET,
 			Key: 'example', // `${(Math.random() + 1).toString(36).substring(2)}`,
@@ -50,8 +50,8 @@ exports.handler = async event => {
 /** Tested Successfully **/
 
 // const resposne_s3_get = await s3.getObject({
-//     Bucket: "flashbook-load-docs", 
-//     Key: "upload/", 
+//     Bucket: "flashbook-load-docs",
+//     Key: "upload/",
 // }).promise()
 // console.log("S3 GET Response:", resposne_s3_get);
 
