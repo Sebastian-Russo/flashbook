@@ -16,7 +16,7 @@ Lambdas
 API Gateway
     Make an API gateway that is attached to a lambda.
     Fix CORS access issue
-        Check url, check cors allowed and deployed in API Gateway, check network tab, check origin-access-control = *, make sure you have ssl key & ctr when spinning up locally.
+        Check url, check cors allowed and deployed in API Gateway, check network tab, check origin-access-control = *, make sure you have valid open ssl key and ctr when spinning up locally.
 
 ********************************************
 BACKEND - TODO:
@@ -48,6 +48,8 @@ Pages:
         !!!!!!!!!!!!! Cannot get content of file. Only name, type, size.
     Library
         !!!!!!!!!!!!! Cannot get content of files from s3.
+    
+    Fix Open SSL keys
 
 ********************************************
 FRONTEND - TODO:
