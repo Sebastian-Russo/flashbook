@@ -5,26 +5,42 @@ import * as RB from "rebass";
 import { apiUploadDocumentS3 } from "../../API";
 
 
+interface SelectedFile {
+	name?: string,
+	type?: string,
+	size?: string,
+	lastModifiedDate?: string
+}
+
 interface UploadProps {}
 
 const Upload: React.FC<UploadProps> = props => {
-	const [selected_file, setSelectedFile] = React.useState([]);
+	const [selected_file, setSelectedFile] = React.useState<SelectedFile[]>([]);
 	const [is_selected, setIsSelected] = React.useState(false);
+	const [file_contents, setFileContents] = React.useState('');
 
 	console.log('Selected file:', selected_file);
+	console.log('File Contents:', file_contents);
 
 	const changeHandler = (event:any) => {
+		const file_selected = event.target.files[0];
+		const reader = new FileReader();
 		const file = event.target.files[0];
+		if (file) {
+			reader.readAsText(file);
+			reader.onloadend = event => {
+			  setFileContents(event.target.result);
+			};
+		  }
 
-		console.log("Raw file:", file);
-		setSelectedFile(file); // this an object that contains the details of files selected to be uploaded in a form
+		setSelectedFile(file_selected); // this an object that contains the details of files selected to be uploaded in a form
 		setIsSelected(true);
 	};
 
 	// Send to API Gateway > S3
 	const handleSubmit = () => {
 		console.log('Handle Submit', selected_file);
-		apiUploadDocumentS3(selected_file);
+		apiUploadDocumentS3(selected_file, file_contents);
 	};
 
 

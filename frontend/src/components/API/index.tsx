@@ -1,7 +1,7 @@
 import { API } from "../../config-dev.json";
 
 
-const apiUploadDocumentS3 = async (selected_file:any) => {
+const apiUploadDocumentS3 = async (selected_file:any, file_contents:string) => {
     console.log("API Selected file:", selected_file);
     // const formData = new FormData();
     // const body = formData.append('content', selected_file, selected_file.name);
@@ -12,12 +12,17 @@ const apiUploadDocumentS3 = async (selected_file:any) => {
     // const body = Buffer.from(selected_file).toString('base64');
     // console.log("Contents of body:", body);
 
+    // const blob = new Blob([file_contents], { type: 'text/plain' });
+    // const myFile = new File([blob], { type: 'text/plain' });
+
     const body = {
         name: selected_file.name,
         size: selected_file.size,
         type: selected_file.type,
-        content: selected_file
+        content: file_contents
     }
+
+    console.log('File body:', body);
 
     const response = await fetch(`${API}/upload`, {
             method: 'POST',

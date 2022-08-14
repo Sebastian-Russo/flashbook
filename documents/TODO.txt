@@ -22,7 +22,6 @@ API Gateway
 BACKEND - TODO:
 
 API Gateway
-    Fix CORS access issue
 
 Lambdas
     PUTSignedURLS3
