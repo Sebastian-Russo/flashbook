@@ -8,21 +8,22 @@ exports.handler = async event => {
 	console.log("RAW EVENT:", JSON.stringify(event));
 
 
-    const resposne_s3_get = await s3.getObject({
+    const resposne_list = await s3.listObjectsV2({
         Bucket: S3_BUCKET,
-        Key: "upload/",
+        MaxKeys: 1000,
     }).promise()
-    console.log("S3 GET Response:", resposne_s3_get);
+    console.log("S3 List Objects Response:", resposne_list);
 
-    const text = resposne_s3_get.Body.toString('utf-8')
-    console.log('Buffer decoded:', text)
+    // const text = resposne_s3_get.Body.toString('utf-8')
+    // console.log('Buffer decoded:', text)
 
 
 	return {
 		statusCode: 200,
 		body: JSON.stringify({
 			// url
-            resposne_s3_get
+            // resposne_s3_get
+            resposne_list
 		})
 	}
 };

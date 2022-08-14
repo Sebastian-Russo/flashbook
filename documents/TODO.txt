@@ -37,6 +37,8 @@ Lambdas
 ****************************************************************************************
 FRONTEND - FINISHED:
 
+Fixed Open SSL keys to access localhost
+
 Pages:
     App:
         Set up Architecture
@@ -44,11 +46,8 @@ Pages:
         Set up Architecture
     Upload Page:
         Upload document
-        !!!!!!!!!!!!! Cannot get content of file. Only name, type, size.
     Library
-        !!!!!!!!!!!!! Cannot get content of files from s3.
     
-    Fix Open SSL keys
 
 ********************************************
 FRONTEND - TODO:
@@ -57,7 +56,7 @@ Pages:
     Upload Page:
     Library Page:
         Grab objects from S3 and list in library for quick reads
-
+        !!!!!!!!!!!!! Cannot get content of files from s3.
 
 
 
