@@ -12,18 +12,36 @@ exports.handler = async event => {
         Bucket: S3_BUCKET,
         MaxKeys: 1000,
     }).promise()
-    console.log("S3 List Objects Response:", resposne_list);
+    console.log("S3 Response List:", resposne_list);
 
-    // const text = resposne_s3_get.Body.toString('utf-8')
-    // console.log('Buffer decoded:', text)
+    const keys = resposne_list.Contents.map(item => item.Key);
+    console.log('Keys:', keys);
+    console.log('Key length', keys.length);
+
+
+    const results_text = [];
+    for (let i = 0; i < keys.length; i++) {
+        const params = {
+            Bucket: S3_BUCKET,
+            Key: keys[i]
+        }
+        // console.log('Params:', params)
+
+        const resposne_s3_get = await s3.getObject(params).promise();
+        console.log("S3 GET Response:", resposne_s3_get);
+        
+        const text = resposne_s3_get.Body.toString('utf-8');
+        // console.log('Buffer decoded:', text);
+        results_text.push(text);
+    } 
+    console.log("Results:", results_text);
+
 
 
 	return {
 		statusCode: 200,
 		body: JSON.stringify({
-			// url
-            // resposne_s3_get
-            resposne_list
+			results_text
 		})
 	}
 };
