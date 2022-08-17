@@ -1,5 +1,44 @@
 ****************************************************************************************
-BACKEND FINISHED:
+*BACKEND - TODO:*
+
+API Gateway
+
+Lambdas
+    PUTSignedURLS3
+        Issue - gets presigned url, but cannot view
+    GetSignURLS3
+        Issue - gets presigned url, but cannot view
+
+
+
+****************************************************************************************
+*FRONTEND - TODO:*
+
+Pages:
+    Upload Page:
+    Library Page:
+        Display title for each document
+        Make title clickable, open to larger display of text
+            Make read button, sends text over to Reading Page
+    
+    Reading Page:
+        Handle receiving text
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************************************************************************************
+*BACKEND FINISHED:*
 
 Lambdas
     PUTSignedURLS3
@@ -11,31 +50,15 @@ Lambdas
         GET from S3
         Have the lambda return a presigned s3 upload url with a short expire time.
         Get presigned url
-        Get object from s3
+        List objects, Get each object from s3, send to frontend
 
 API Gateway
     Make an API gateway that is attached to a lambda.
     Fix CORS access issue
         Check url, check cors allowed and deployed in API Gateway, check network tab, check origin-access-control = *, make sure you have valid open ssl key and ctr when spinning up locally.
 
-********************************************
-BACKEND - TODO:
-
-API Gateway
-
-Lambdas
-    PUTSignedURLS3
-        Issue - gets presigned url, but cannot view
-    GetSignURLS3
-        Get all objects, list and view them.
-
-
-
-
-
-
 ****************************************************************************************
-FRONTEND - FINISHED:
+*FRONTEND - FINISHED:*
 
 Fixed Open SSL keys to access localhost
 
@@ -48,19 +71,6 @@ Pages:
         Upload document
     Library
     
-
-********************************************
-FRONTEND - TODO:
-
-Pages:
-    Upload Page:
-    Library Page:
-        Grab objects from S3 and list in library for quick reads
-        !!!!!!!!!!!!! Cannot get content of files from s3.
-
-
-
-
 
 
 
@@ -85,8 +95,6 @@ FRONTEND LATER:
 ****************************************************************************************
 
 2nd Amplify Backend Architecture
-
-TODO NEXT:
 
     Fix Amplify push
          Senpai ~/Desktop/flashbook $ amplify push --profile seb-sandbox

@@ -32,7 +32,7 @@ exports.handler = async event => {
         
         const text = resposne_s3_get.Body.toString('utf-8');
         // console.log('Buffer decoded:', text);
-        results_text.push(text);
+        results_text.push({[keys[i]]: text});
     } 
     console.log("Results:", results_text);
 

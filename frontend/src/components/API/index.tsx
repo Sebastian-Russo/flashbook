@@ -35,7 +35,7 @@ const apiUploadDocumentS3 = async (selected_file:any, file_contents:string) => {
                 "Accepts": "application/json"
             },
     })
-    console.log('Upload Response:', await response.json());
+    console.log('API Upload Response:', await response.json());
 
     return response;
 };
@@ -51,9 +51,10 @@ const apiGetDocumentS3 = async () => {
         },
     })
 
-    console.log('GET Response:', await response.json());
+    // const result = await response.json();
+    console.log('API GET Result:', await response.json());
 
-    return response;
+    return response
 }
 
 
