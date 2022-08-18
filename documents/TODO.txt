@@ -15,11 +15,8 @@ Lambdas
 *FRONTEND - TODO:*
 
 Pages:
-    Upload Page:
     Library Page:
-        Display title for each document
-        Make title clickable, open to larger display of text
-            Make read button, sends text over to Reading Page
+        Make read button, sends text over to Reading Page
     
     Reading Page:
         Handle receiving text
@@ -70,6 +67,8 @@ Pages:
     Upload Page:
         Upload document
     Library
+        Made title clickable, open to larger display of text. Display title for each document, figured out async await useEffect issue.
+        
     
 
 
