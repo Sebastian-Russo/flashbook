@@ -3,17 +3,6 @@ import { API } from "../../config-dev.json";
 
 const apiUploadDocumentS3 = async (selected_file:any, file_contents:string) => {
     console.log("API Selected file:", selected_file);
-    // const formData = new FormData();
-    // const body = formData.append('content', selected_file, selected_file.name);
-    // console.log('File appended:', body);
-
-    // Buffer.from(selected_file).toString('base64')
-    // console.log("Contents of file:", selected_file);
-    // const body = Buffer.from(selected_file).toString('base64');
-    // console.log("Contents of body:", body);
-
-    // const blob = new Blob([file_contents], { type: 'text/plain' });
-    // const myFile = new File([blob], { type: 'text/plain' });
 
     const body = {
         name: selected_file.name,
@@ -35,7 +24,7 @@ const apiUploadDocumentS3 = async (selected_file:any, file_contents:string) => {
                 "Accepts": "application/json"
             },
     })
-    console.log('API Upload Response:', await response.json());
+    // console.log('API Upload Response:', await response.json());
 
     return response;
 };
@@ -52,7 +41,7 @@ const apiGetDocumentS3 = async () => {
     })
 
     // const result = await response.json();
-    console.log('API GET Result:', await response.json());
+    // console.log('API GET Result:', await response.json());
 
     return response
 }
