@@ -74,6 +74,13 @@ Pages:
 
 
 ****************************************************************************************
+FRONTEND LATER:
+
+    Context for props
+
+
+
+
 BACKEND LATER:
 
     Amazon Textract
@@ -85,12 +92,8 @@ BACKEND LATER:
         Deployment
 
     CDK
-        Build each resource
 
 
-FRONTEND LATER:
-
-    Context for props
 ****************************************************************************************
 
 2nd Amplify Backend Architecture
