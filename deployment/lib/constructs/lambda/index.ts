@@ -1,6 +1,6 @@
 import { Stage, StageProps, Stack, StackProps } from 'aws-cdk-lib';
 import * as cdk from "aws-cdk-lib";
-import * as lambda from "aws-cdk-lib/lambda";
+import * as lambda from "@aws-cdk/aws-lambda";
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import { Construct } from "constructs"; // ???
 import { Bucket } from '../s3/index';
