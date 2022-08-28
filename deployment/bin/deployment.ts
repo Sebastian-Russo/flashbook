@@ -4,7 +4,7 @@ import * as cdk from '@aws-cdk/core';
 import { DeploymentStack } from '../lib/deployment-stack';
 
 const app = new cdk.App();
-new DeploymentStack(app, 'DeploymentStack', {
+new DeploymentStack(app, 'FlashbookStack', {
 
   // Deploy stack to seb-sandbox
   env: { 

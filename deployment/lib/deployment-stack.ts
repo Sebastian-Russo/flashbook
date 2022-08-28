@@ -1,6 +1,8 @@
 import { Stage, StageProps, Stack, StackProps } from 'aws-cdk-lib';
 import * as cdk from "aws-cdk-lib";
-import { Construct } from 'constructs'; // ???
+import { Construct } from 'constructs';
+import { Lambda } from './constructs/lambda/index';
+import { Bucket } from './constructs/s3/index';
 
 // All constructs that represent AWS resources must be defined, directly or indirectly, within the scope of a Stack construct
 // Define (also known as to instantiate)
@@ -20,8 +22,10 @@ export class DeploymentStack extends cdk.Stack {
     // The code that defines (instantiates) your stack goes here
   
     // lambda GetS3Docs
+    new Lambda(this, 'GetS3Docs');
     // lambda UploadS3Docs
     // s3 Bucket
+    new Bucket(this, 'flashbook-docs');
     // Static Site
 
 
