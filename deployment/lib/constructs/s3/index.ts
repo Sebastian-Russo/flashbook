@@ -5,6 +5,7 @@ import { aws_s3 as s3, aws_iam as iam } from "aws-cdk-lib";
 import { Lambda } from '../lambda/index';
 
 class Bucket extends Construct {
+    public readonly Bucket: s3.Bucket // enum type
     constructor(scope: Construct, id: string, props?: StackProps) {
         super(scope, id);
 
@@ -23,7 +24,7 @@ class Bucket extends Construct {
         }));
 
         // declare const myLambda: lambda.Function;
-        bucket.grantReadWrite(Lambda.handler);
+        bucket.grantReadWrite(Lambda);
 
     }
 }

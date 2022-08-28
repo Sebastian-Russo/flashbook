@@ -1,5 +1,6 @@
 import { Stage, StageProps, Stack, StackProps } from 'aws-cdk-lib';
 import * as cdk from "aws-cdk-lib";
+import * as lambda from '@aws-cdk/aws-lambda';
 import { Construct } from 'constructs';
 import { Lambda } from './constructs/lambda/index';
 import { Bucket } from './constructs/s3/index';
@@ -21,11 +22,21 @@ export class DeploymentStack extends cdk.Stack {
 
     // The code that defines (instantiates) your stack goes here
   
-    // lambda GetS3Docs
-    new Lambda(this, 'GetS3Docs');
-    // lambda UploadS3Docs
     // s3 Bucket
-    new Bucket(this, 'flashbook-docs');
+    const s3Bucket = new Bucket(this, 'flashbook-docs', {
+      // add params here
+    });
+
+    // lambda GetS3Docs
+    new Lambda(this, 'GetS3Docs', {
+      // add params here
+      environment: {
+        BUCKET_NAME: s3Bucket.Bucket.bucketArn
+      },
+      runtime: lambda.Runtime.NODEJS_16_X,    // execution environment
+    });
+    // lambda UploadS3Docs
+
     // Static Site
 
 
