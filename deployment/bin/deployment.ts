@@ -7,14 +7,14 @@ const app = new cdk.App();
 new DeploymentStack(app, 'FlashbookStack', {
 
   // Deploy stack to seb-sandbox
-  env: { 
+  env: {
     account: '539814242117',
     region: 'us-east-1',
-    stage: 'staging'
+    stage: 'dev'
   },
 
   // Deploy stack to seb-nation
-  // env: { 
+  // env: {
   //   account: '967382976609',
   //   region: 'us-east-1',
   //   stage: 'prod'

@@ -5,6 +5,7 @@ import { Construct } from 'constructs';
 import { Lambda } from './constructs/lambda/index';
 import { Bucket } from './constructs/s3/index';
 
+
 // All constructs that represent AWS resources must be defined, directly or indirectly, within the scope of a Stack construct
 // Define (also known as to instantiate)
 
@@ -17,28 +18,39 @@ interface DeploymentStackProps extends StackProps {
 }
 
 export class DeploymentStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: DeploymentStackProps) {
-    super(scope, id, props);
+	constructor(scope: Construct, id: string, props?: DeploymentStackProps) {
+		super(scope, id, props);
 
     // The code that defines (instantiates) your stack goes here
-  
-    // s3 Bucket
+
     const s3Bucket = new Bucket(this, 'flashbook-docs', {
-      // add params here
+      bucketName: 'flashbook-docs',
     });
 
-    // lambda GetS3Docs
     new Lambda(this, 'GetS3Docs', {
-      // add params here
-      environment: {
-        BUCKET_NAME: s3Bucket.Bucket.bucketArn
-      },
-      runtime: lambda.Runtime.NODEJS_16_X,    // execution environment
+		assetPath: '../../backend/lambdas/GetS3Docs',
+		env: {
+			BUCKET_NAME: s3Bucket.Bucket.bucketArn
+		},
+    functionName: 'GetS3Docs',
+		// layers: '',
+		// role: ''
     });
-    // lambda UploadS3Docs
+
+
+    new Lambda(this, 'UploadS3Docs', {
+		assetPath: '../../backend/lambdas/GetS3Docs',
+		env: {
+			BUCKET_NAME: s3Bucket.Bucket.bucketArn
+		},
+    functionName: 'UploadS3Docs',
+		// layers: '',
+		// role: ''
+    });
+
+
 
     // Static Site
-
-
+    // API Gateway
   }
 }
