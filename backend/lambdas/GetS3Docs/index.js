@@ -29,11 +29,11 @@ exports.handler = async event => {
 
         const resposne_s3_get = await s3.getObject(params).promise();
         console.log("S3 GET Response:", resposne_s3_get);
-        
+
         const text = resposne_s3_get.Body.toString('utf-8');
         // console.log('Buffer decoded:', text);
         results_text.push({key:keys[i], doc: text});
-    } 
+    }
     console.log("Results:", results_text);
 
 
